@@ -10,5 +10,11 @@ terraform {
 }
 
 provider "aws" {
+  alias  = "active"
   region  = "us-west-1"
+}
+
+provider "aws" {
+  alias  = "standby"
+  region = "us-west-2"
 }
