@@ -40,14 +40,14 @@ resource "aws_security_group" "secondary_database" {
 
 resource "aws_db_subnet_group" "primary" {
   name       = "main"
-  subnet_ids = [aws_subnet.primary_private.id]
+  subnet_ids = [aws_subnet.primary_private.id, aws_subnet.primary_private_1.id]
   
   provider = aws.active
 }
 
 resource "aws_db_subnet_group" "secondary" {
   name       = "main"
-  subnet_ids = [aws_subnet.secondary_private.id]
+  subnet_ids = [aws_subnet.secondary_private.id, aws_subnet.secondary_private_1.id]
   
   provider = aws.standby
 }
