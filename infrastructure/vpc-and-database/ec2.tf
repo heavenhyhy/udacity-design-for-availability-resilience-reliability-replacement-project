@@ -15,7 +15,7 @@ resource "aws_instance" "primary_db_access" {
   instance_type = "t3.micro"
   key_name      = aws_key_pair.primary_ssh_key.key_name
   vpc_security_group_ids = [aws_cloudformation_stack.primary.outputs["ApplicationSecurityGroup"]]
-  subnet_id = split(", ", aws_cloudformation_stack.primary.outputs["PrivateSubnets"])[0]
+  subnet_id = split(", ", aws_cloudformation_stack.primary.outputs["PublicSubnets"])[0]
 
   tags = {
     Name = "DbAccess"
@@ -41,7 +41,7 @@ resource "aws_instance" "secondary_db_access" {
   instance_type = "t3.micro"
   key_name      = aws_key_pair.secondary_ssh_key.key_name
   vpc_security_group_ids = [aws_cloudformation_stack.secondary.outputs["ApplicationSecurityGroup"]]
-  subnet_id = split(", ", aws_cloudformation_stack.secondary.outputs["PrivateSubnets"])[0]
+  subnet_id = split(", ", aws_cloudformation_stack.secondary.outputs["PublicSubnets"])[0]
 
   tags = {
     Name = "DbAccess"

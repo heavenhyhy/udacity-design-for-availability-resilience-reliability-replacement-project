@@ -1,0 +1,42 @@
+16:36:20 [INF][     SSH tunnel]: Existing SSH tunnel not found, opening new one
+16:36:20 [INF][     SSH tunnel]: Opening SSH tunnel to ec2-107-20-109-110.compute-1.amazonaws.com:22
+16:36:20 [INF][      SSHCommon]: libssh: ssh_connect ssh_connect: libssh 0.9.6 (c) 2003-2021 Aris Adamantiadis, Andreas Schneider and libssh contributors. Distributed under the LGPL, please refer to COPYING file for information about your rights, using threading threads_stdthread
+16:36:20 [INF][      SSHCommon]: libssh: ssh_socket_connect ssh_socket_connect: Nonblocking connection socket: 1948
+16:36:20 [INF][      SSHCommon]: libssh: ssh_connect ssh_connect: Socket connecting, now waiting for the callbacks to work
+16:36:20 [INF][      SSHCommon]: libssh: ssh_client_connection_callback ssh_client_connection_callback: SSH server banner: SSH-2.0-OpenSSH_8.7
+16:36:20 [INF][      SSHCommon]: libssh: ssh_analyze_banner ssh_analyze_banner: Analyzing banner: SSH-2.0-OpenSSH_8.7
+16:36:20 [INF][      SSHCommon]: libssh: ssh_analyze_banner ssh_analyze_banner: We are talking to an OpenSSH client version: 8.7 (80700)
+16:36:21 [INF][      SSHCommon]: libssh: ssh_kex_select_methods ssh_kex_select_methods: Negotiated curve25519-sha256,ssh-ed25519,aes256-gcm@openssh.com,aes256-gcm@openssh.com,aead-gcm,aead-gcm,none,none,,
+16:36:21 [INF][      SSHCommon]: libssh: ssh_init_rekey_state ssh_init_rekey_state: Set rekey after 4294967296 blocks
+16:36:21 [INF][      SSHCommon]: libssh: ssh_init_rekey_state ssh_init_rekey_state: Set rekey after 4294967296 blocks
+16:36:21 [INF][      SSHCommon]: libssh: ssh_packet_client_curve25519_reply ssh_packet_client_curve25519_reply: SSH_MSG_NEWKEYS sent
+16:36:21 [INF][      SSHCommon]: libssh: ssh_packet_newkeys ssh_packet_newkeys: Received SSH_MSG_NEWKEYS
+16:36:21 [INF][      SSHCommon]: libssh: ssh_packet_newkeys ssh_packet_newkeys: Signature verified and valid
+16:36:22 [INF][      SSHCommon]: libssh: ssh_packet_userauth_failure ssh_packet_userauth_failure: Access denied for 'none'. Authentication that can continue: publickey,gssapi-keyex,gssapi-with-mic
+16:36:22 [INF][     SSHSession]: Banner: 
+16:36:22 [INF][      SSHCommon]: libssh: ssh_pki_import_privkey_base64 ssh_pki_import_privkey_base64: Trying to decode privkey passphrase=true
+16:36:22 [INF][      SSHCommon]: libssh: ssh_pki_openssh_import ssh_pki_openssh_import: Opening OpenSSH private key: ciphername: none, kdf: none, nkeys: 1
+16:36:22 [INF][     SSH tunnel]: SSH tunnel opened on port: 55183
+16:36:25 [ERR][SSHTunnelHandler]: Error during data transfer: unable to read, remote end disconnected
+16:36:40 [INF][     SSH tunnel]: Existing SSH tunnel not found, opening new one
+16:36:40 [INF][     SSH tunnel]: Opening SSH tunnel to ec2-107-20-109-110.compute-1.amazonaws.com:22
+16:36:40 [INF][      SSHCommon]: libssh: ssh_connect ssh_connect: libssh 0.9.6 (c) 2003-2021 Aris Adamantiadis, Andreas Schneider and libssh contributors. Distributed under the LGPL, please refer to COPYING file for information about your rights, using threading threads_stdthread
+16:36:40 [INF][      SSHCommon]: libssh: ssh_socket_connect ssh_socket_connect: Nonblocking connection socket: 3864
+16:36:40 [INF][      SSHCommon]: libssh: ssh_connect ssh_connect: Socket connecting, now waiting for the callbacks to work
+16:36:41 [INF][      SSHCommon]: libssh: ssh_client_connection_callback ssh_client_connection_callback: SSH server banner: SSH-2.0-OpenSSH_8.7
+16:36:41 [INF][      SSHCommon]: libssh: ssh_analyze_banner ssh_analyze_banner: Analyzing banner: SSH-2.0-OpenSSH_8.7
+16:36:41 [INF][      SSHCommon]: libssh: ssh_analyze_banner ssh_analyze_banner: We are talking to an OpenSSH client version: 8.7 (80700)
+16:36:41 [INF][      SSHCommon]: libssh: ssh_kex_select_methods ssh_kex_select_methods: Negotiated curve25519-sha256,ssh-ed25519,aes256-gcm@openssh.com,aes256-gcm@openssh.com,aead-gcm,aead-gcm,none,none,,
+16:36:42 [INF][      SSHCommon]: libssh: ssh_init_rekey_state ssh_init_rekey_state: Set rekey after 4294967296 blocks
+16:36:42 [INF][      SSHCommon]: libssh: ssh_init_rekey_state ssh_init_rekey_state: Set rekey after 4294967296 blocks
+16:36:42 [INF][      SSHCommon]: libssh: ssh_packet_client_curve25519_reply ssh_packet_client_curve25519_reply: SSH_MSG_NEWKEYS sent
+16:36:42 [INF][      SSHCommon]: libssh: ssh_packet_newkeys ssh_packet_newkeys: Received SSH_MSG_NEWKEYS
+16:36:42 [INF][      SSHCommon]: libssh: ssh_packet_newkeys ssh_packet_newkeys: Signature verified and valid
+16:36:42 [INF][      SSHCommon]: libssh: ssh_packet_userauth_failure ssh_packet_userauth_failure: Access denied for 'none'. Authentication that can continue: publickey,gssapi-keyex,gssapi-with-mic
+16:36:42 [INF][     SSHSession]: Banner: 
+16:36:42 [INF][      SSHCommon]: libssh: ssh_pki_import_privkey_base64 ssh_pki_import_privkey_base64: Trying to decode privkey passphrase=true
+16:36:42 [INF][      SSHCommon]: libssh: ssh_pki_openssh_import ssh_pki_openssh_import: Opening OpenSSH private key: ciphername: none, kdf: none, nkeys: 1
+16:36:43 [INF][     SSH tunnel]: SSH tunnel opened on port: 55189
+16:36:55 [INF][SQL Editor Form]: Opened connection 'udacity_primary' to Source distribution version 8.0.35
+16:37:01 [INF][        WQE.net]: Launching SQL IDE
+16:37:01 [INF][        WQE.net]: SQL IDE UI is ready
