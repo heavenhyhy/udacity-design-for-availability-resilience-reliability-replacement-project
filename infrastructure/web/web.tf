@@ -26,7 +26,7 @@ resource "time_sleep" "wait_30_seconds" {
 }
 
 resource "aws_s3_bucket_policy" "website_resiliency" {
-  depends_on = [time_sleep.wait_30_seconds] // to avoid 403, from my experience need to wait to create bucket completely before update policy
+  depends_on = [time_sleep.wait_30_seconds] // to avoid 403, from my experience need to wait to create a bucket completely before updating policy
 
   bucket = aws_s3_bucket.website_resiliency.id
 
@@ -48,14 +48,14 @@ resource "aws_s3_bucket_policy" "website_resiliency" {
   })
 }
 
-resource "aws_s3_object" "upload_website" {
+resource "aws_s3_object" "upload_website" { // inheritance from Stackoverflow.
   for_each      = fileset("../../s3/", "*")
 
   bucket        = aws_s3_bucket.website_resiliency.id
   key           = each.value
   source        = "../../s3/${each.value}"
   content_type  = length(regexall(".html", each.value)) > 0 ? "text/html" : "image/jpg"
-  etag   = filemd5("../../s3/${each.value}") // no encryption so it's ok to use etag rather than source_hash
+  etag   = filemd5("../../s3/${each.value}") // no encryption so it's ok to use etag rather than source_hash, 
 }
 
 resource "aws_s3_bucket_website_configuration" "website_resiliency" {
