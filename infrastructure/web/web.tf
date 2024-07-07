@@ -46,7 +46,7 @@ resource "aws_s3_object" "upload_website" {
   bucket        = aws_s3_bucket.website_resiliency.id
   key           = each.value
   source        = "../../s3/${each.value}"
-  content_type  = "text/html"
+  content_type  = length(regexall(".html", each.value)) > 0 ? "text/html" : "image/jpg"
   etag   = filemd5("../../s3/${each.value}") // no encryption so it's ok to use etag rather than source_hash
 }
 
