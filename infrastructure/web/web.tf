@@ -19,7 +19,15 @@ resource "aws_s3_bucket_public_access_block" "website_resiliency" {
   restrict_public_buckets = false
 }
 
+resource "time_sleep" "wait_30_seconds" {
+  depends_on = [aws_s3_bucket.website_resiliency]
+
+  destroy_duration = "30s"
+}
+
 resource "aws_s3_bucket_policy" "website_resiliency" {
+  depends_on = [time_sleep.wait_30_seconds] // to avoid 403, from my experience need to wait to create bucket completely before update policy
+
   bucket = aws_s3_bucket.website_resiliency.id
 
   policy = jsonencode({
