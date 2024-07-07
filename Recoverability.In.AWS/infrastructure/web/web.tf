@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "website_resiliency" {
   bucket = "81da30af-3fd5-44e4-b5b6-60110b443ba5-website-resiliency" // 81da30af-3fd5-44e4-b5b6-60110b443ba5 my Udacity userId
-  force_destroy = true
+  force_destroy = true // delete all bucket objects when TF destroy
 }
 
 resource "aws_s3_bucket_versioning" "website_resiliency" {
@@ -42,6 +42,7 @@ resource "aws_s3_bucket_policy" "website_resiliency" {
 
 resource "aws_s3_object" "upload_website" {
   for_each      = fileset("../../s3/", "*")
+
   bucket        = aws_s3_bucket.website_resiliency.id
   key           = each.value
   source        = "../../s3/${each.value}"
