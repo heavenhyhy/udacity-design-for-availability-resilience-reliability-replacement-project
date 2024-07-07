@@ -1,0 +1,8 @@
+# Recovery Time Objective (RTO)
+- Minimum RTO for a single AZ outage: Per the AWS document (https://aws.amazon.com/rds/features/multi-az/), A new primary is available to serve your new workload in as quickly as 60 seconds, so the Minimum RTO here will be 60 seconds.
+-  Minimum RTO for a single region outage: Per the AWS document (https://aws.amazon.com/rds/features/multi-az/), In the event of an AZ failure, your workload will automatically failover to the up-to-date standby. Therefore the minimum here depends on the promotion time.
+Another doc (https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html#USER_ReadRepl.Promote) said that the promotion process can take several minutes or longer to complete, depending on the size of the read replica. In conclusion, this setup will have a minimum RTO of ~5 (? as the instance is db.t3.micro) minutes for a single region outage.
+
+# Recovery Point Objective (RPO)
+- Minimum RPO for a single AZ outage: less than 60 seconds
+- Minimum RPO for a single region outage: ~5 minutes
