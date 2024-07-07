@@ -1,32 +1,20 @@
 #### Primary DB
-resource "aws_security_group" "primary_database" {
-  name   = "UDARR-Database"
-  vpc_id = aws_cloudformation_stack.primary.outputs["VPC"]
-
-  ingress {
-    from_port   = 3306
-    to_port     = 3306
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-  
-  provider = aws.active
-}
-
 resource "aws_db_subnet_group" "primary" {
+  depends_on = [
+    aws_cloudformation_stack.primary, aws_cloudformation_stack.secondary
+  ]
+
   name       = "primary"
-  subnet_ids = [aws_cloudformation_stack.primary.outputs["PrivateSubnets"]]
+  subnet_ids = split(", ", aws_cloudformation_stack.primary.outputs["PrivateSubnets"])
   
   provider = aws.active
 }
 
 resource "aws_db_instance" "primary" {
+  depends_on = [
+    aws_cloudformation_stack.primary, aws_cloudformation_stack.secondary
+  ]
+  
   identifier             = "primary"
   instance_class         = "db.t3.micro"
   allocated_storage      = 5
@@ -45,34 +33,22 @@ resource "aws_db_instance" "primary" {
 }
 
 #### Secondary DB
-resource "aws_security_group" "secondary_database" {
-  name   = "UDARR-Database"
-  vpc_id = aws_cloudformation_stack.secondary.outputs["VPC"]
-
-  ingress {
-    from_port   = 3306
-    to_port     = 3306
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-  
-  provider = aws.standby
-}
-
 resource "aws_db_subnet_group" "secondary" {
+  depends_on = [
+    aws_cloudformation_stack.primary, aws_cloudformation_stack.secondary
+  ]
+
   name       = "secondary"
-  subnet_ids = [aws_cloudformation_stack.secondary.outputs["PrivateSubnets"]]
+  subnet_ids = split(", ", aws_cloudformation_stack.secondary.outputs["PrivateSubnets"])
   
   provider = aws.standby
 }
 
 resource "aws_db_instance" "secondary" {
+  depends_on = [
+    aws_cloudformation_stack.primary, aws_cloudformation_stack.secondary
+  ]
+
   identifier             = "secondary"
   replicate_source_db    = aws_db_instance.primary.arn
   instance_class         = "db.t3.micro"

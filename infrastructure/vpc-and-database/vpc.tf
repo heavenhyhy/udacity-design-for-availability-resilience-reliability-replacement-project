@@ -20,7 +20,7 @@ resource "aws_cloudformation_stack" "secondary" {
   name = "Secondary"
   parameters = {
     VpcName = "Secondary"
-    VpcCIDR = "10.5.0.0/16"
+    VpcCIDR = "10.6.0.0/16"
     PublicSubnet1CIDR = "10.6.10.0/24"
     PublicSubnet2CIDR = "10.6.11.0/24"
     PrivateSubnet1CIDR = "10.6.20.0/24"
