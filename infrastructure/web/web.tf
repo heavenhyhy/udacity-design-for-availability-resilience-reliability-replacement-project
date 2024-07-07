@@ -47,7 +47,7 @@ resource "aws_s3_object" "upload_website" {
   key           = each.value
   source        = "../../s3/${each.value}"
   content_type  = "text/html"
-  etag   = filemd5("../../s3/${each.value}") // prevent re-upload when re-apply without file changes
+  etag   = filemd5("../../s3/${each.value}") // no encryption so it's ok to use etag rather than source_hash
 }
 
 resource "aws_s3_bucket_website_configuration" "website_resiliency" {
