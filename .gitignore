@@ -8,3 +8,5 @@
 /Recoverability.In.AWS/infrastructure/web/.terraform/providers/registry.terraform.io/hashicorp/aws/4.67.0/windows_amd64/terraform-provider-aws_v4.67.0_x5.exe
 /Recoverability.In.AWS/infrastructure/web/.terraform/providers/registry.terraform.io/hashicorp/time/0.11.2/windows_amd64/LICENSE.txt
 /Recoverability.In.AWS/infrastructure/web/.terraform/providers/registry.terraform.io/hashicorp/time/0.11.2/windows_amd64/terraform-provider-time_v0.11.2_x5.exe
+/infrastructure/vpc-and-database/.terraform/*
+/infrastructure/web/.terraform/*
